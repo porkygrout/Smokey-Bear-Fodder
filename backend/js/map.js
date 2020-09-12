@@ -398,7 +398,7 @@ var layers = {
       for (var i = 0; i < fireLog.length; i++) {
         var fire = fireLog[i]
         
-        console.log(fire.stat_cause_descrr)
+        console.log(fire.stat_cause_descr)
         // If a station is listed but not installed, it's coming soon
         if (fire.stat_cause_descr == "Arson") {
           firetypeCode = "Arson";
