@@ -213,14 +213,9 @@ var layers = {
     Children: new L.LayerGroup(),
     Debris_Burning: new L.LayerGroup(),
     Equipment_Use: new L.LayerGroup(),
-    Fireworks: new L.LayerGroup(),
     Lightning: new L.LayerGroup(),
     Miscellaneous: new L.LayerGroup(),
-    Missing_Undefined: new L.LayerGroup(),
-    Powerline: new L.LayerGroup(),
-    Railroad: new L.LayerGroup(),
     Smoking: new L.LayerGroup(),
-    Structure: new L.LayerGroup(),
     Other: new L.LayerGroup()
   };
   
@@ -233,14 +228,9 @@ var layers = {
       layers.Campfire,
       layers.Debris_Burning,
       layers.Equipment_Use,
-      layers.Fireworks,
       layers.Lightning,
       layers.Miscellaneous,
-      layers.Missing_Undefined,
-      layers.Powerline,
-      layers.Railroad,
       layers.Smoking,
-      layers.Structure,
       layers.Other
     ]
   });
@@ -255,14 +245,9 @@ var layers = {
     "Children": layers.Children,
     "Debris Burning": layers.Debris_Burning,
     "Equipment Use": layers.Equipment_Use,
-    "Fireworks": layers.fireworks,
     "Lightning": layers.Lightning,
     "Miscellaneous": layers.Miscellaneous,
-    "Missing/Undefined": layers.Missing_Undefined,
-    "Powerline": layers.Powerline,
-    "Railroad": layers.Railroad,
     "Smoking": layers.Smoking,
-    "Structure": layers.Structure,
     "Other": layers.Other
   };
   
@@ -314,12 +299,6 @@ var layers = {
       markerColor: "green",
       shape: "circle"
     }),
-    Fireworks: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "green",
-      shape: "circle"
-    }),
     Lightning: L.ExtraMarkers.icon({
       icon: "ion-android-bicycle",
       iconColor: "white",
@@ -332,34 +311,10 @@ var layers = {
       markerColor: "pink",
       shape: "circle"
     }),
-    Missing_Undefined: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "green",
-      shape: "circle"
-    }),
-    Powerline: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "green",
-      shape: "circle"
-    }),
-    Railroad: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "green",
-      shape: "circle"
-    }),
     Smoking: L.ExtraMarkers.icon({
       icon: "ion-android-bicycle",
       iconColor: "white",
       markerColor: "violet",
-      shape: "circle"
-    }),
-    Structure: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "green",
       shape: "circle"
     }),
     Other: L.ExtraMarkers.icon({
@@ -379,15 +334,10 @@ var layers = {
         Campfire: 0,
         Children: 0,
         Debris_Burning: 0,
-        Fireworks: 0,
         Equipment_Use: 0,
         Lightning: 0,
         Miscellaneous: 0,
-        Missing_Undefined:0,
-        Powerline:0,
-        Railroad: 0,
         Smoking: 0,
-        Structure: 0,
         Other: 0
       };
   
@@ -419,29 +369,14 @@ var layers = {
         else if (fire.stat_cause_descr == "Equipment Use") {
           firetypeCode = "Equipment_Use";
         }
-        else if (fire.stat_cause_descr == "Fireworks") {
-          firetypeCode = "Fireworks";
-        }
         else if (fire.stat_cause_descr == "Lightning") {
           firetypeCode = "Lightning";
         }
         else if (fire.stat_cause_descr == "Miscellaneous") {
           firetypeCode = "Miscellaneous";
         }
-        else if (fire.stat_cause_descr == "Missing/Undefined") {
-          firetypeCode = "Missing_Undefined";
-        }
-        else if (fire.stat_cause_descr == "Powerline") {
-          firetypeCode = "Powerline";
-        }
-        else if (fire.stat_cause_descr == "Railroad") {
-          firetypeCode = "Railroad";
-        }
         else if (fire.stat_cause_descr == "Smoking") {
           firetypeCode = "Smoking";
-        }
-        else if (fire.stat_cause_descr == "Structure") {
-          firetypeCode = "Structure";
         }
         else {
           firetypeCode = "Other"
@@ -474,15 +409,9 @@ var layers = {
       "<p class='Children'>Children: " + fireCount.Children + "</p>",
       "<p class='Debris_Burning'>Debris Burning: " + fireCount.Debris_Burning + "</p>",
       "<p class='Equipment_Use'>Equipment Use: " + fireCount.Equipment_Use + "</p>",
-      "<p class='Fireworks'>Fireworks: " + fireCount.Fireworks + "</p>",
       "<p class='Lightning'>Lightning: " + fireCount.Lightning + "</p>",
-      "<p class='Miscellaneous'>Miscellaneous: " + fireCount.Miscellaneous + "</p>",
-      "<p class='Missing_Undefined'>Missing/Undefined: " + fireCount.Missing_Undefined + "</p>",
-      "<p class='Powerline'>Powerline: " + fireCount.Powerline + "</p>",
-      "<p class='Railroad'>Railroad: " + fireCount.Railroad + "</p>",
-      "<p class='Smoking'>Smoking; " + fireCount.Smoking + "</p>",
-      "<p class='Structure'>Structure: " + fireCount.Structure + "</p>",
-      "<p class='Other'>Other: " + fireCount.Other + "</p>"
+      "<p class='Miscellaneous'>Miscellaneous" + fireCount.Miscellaneous + "</p>",
+      "<p class='Smoking'>Smoking" + fireCount.Smoking + "</p>",
+      "<p class='Other'>Other" + fireCount.Other + "</p>"
     ].join("");
   }
-  
