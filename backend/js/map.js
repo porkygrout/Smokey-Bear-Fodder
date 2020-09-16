@@ -231,6 +231,7 @@ var layers = {
     layers: [
       layers.Arson,
       layers.Campfire,
+      layers.Children,
       layers.Debris_Burning,
       layers.Equipment_Use,
       layers.Fireworks,
@@ -255,7 +256,7 @@ var layers = {
     "Children": layers.Children,
     "Debris Burning": layers.Debris_Burning,
     "Equipment Use": layers.Equipment_Use,
-    "Fireworks": layers.fireworks,
+    "Fireworks": layers.Fireworks,
     "Lightning": layers.Lightning,
     "Miscellaneous": layers.Miscellaneous,
     "Missing/Undefined": layers.Missing_Undefined,
