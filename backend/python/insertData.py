@@ -8,7 +8,6 @@ client = pymongo.MongoClient(conn)
 
 # select database and collection to use
 db = client.fire_db
-collection = db.fire_table
 
 # message to confirm data pull from csv started
 print("Data Pull Starting...Please Wait...")
@@ -17,29 +16,31 @@ print("Data Pull Starting...Please Wait...")
 csv_file = '../data/FireTable.csv'
 fire_data = pd.read_csv(csv_file, encoding= 'unicode_escape')
 print("Data Pull Complete")
-print("Building Data Table...Please Wait...")
-fire_data_lite = fire_data[["FIRE_NAME","FIRE_YEAR","DISCOVERY_DOY","LATITUDE","LONGITUDE","STAT_CAUSE_DESCR","STATE"]]
-fire_data_lite = fire_data_lite[fire_data_lite["STATE"] == "NY"]
-# fire_data_lite = fire_data_lite[fire_data_lite["FIRE_YEAR"] == 2015]
-fire_data_liter = fire_data_lite.dropna()
-fire_data_liter.columns = fire_data_liter.columns.str.lower()
-fire_dict = fire_data_liter.to_dict('records')
-print("Table Complete")
+print("Building Data Tables...Please Wait...")
+states = ["NY","PA","MD","DE","NJ","CT","RI","MA","NH","VT","ME"]
+for state in states:
+    collection = db[f"fire_table_{state}"]
+    fire_data_lite = fire_data[fire_data["STATE"] == state]
+    fire_data_liter = fire_data_lite.dropna()
+    fire_data_liter.columns = fire_data_liter.columns.str.lower()
+    fire_dict = fire_data_liter.to_dict('records')
+    print(f"{state} Table Complete")
 
-# prevent duplication
-collection.drop()
-print("Removing Previous DB Data")
+    # prevent duplication
+    collection.drop()
 
-# message to confirm data upload started
-print("Data Upload Starting...Please Wait...")
+    # message to confirm data upload started
+    print(f"{state} Data Upload Starting...Please Wait...")
 
-# insert into database
-collection.insert_many(fire_dict)
+    # insert into database
+    collection.insert_many(fire_dict)
+    print(f"{state} Table Uploaded!")
 
 # text to confirm data uploaded
-print("Data Uploaded!")
+print("All States Data Uploaded!")
 
 # show how many rows were imported
-index = fire_data_liter.index
+index = fire_data.index
 number = len(index)
 print(f"{number} Rows Imported!")
+
