@@ -1,0 +1,179 @@
+html,
+body {
+  height: 100%;
+  padding-left: 5%;
+  margin: 0;
+  
+}
+
+#map-ct {
+  height: 60%;
+  width: 85%;
+  margin: 0;
+  border-radius: 25px;
+  padding-top: 20px;
+}
+#map-de {
+  height: 60%;
+  width: 85%;
+  margin: 0;
+  border-radius: 25px;
+  padding-top: 20px;
+}
+#map-ma {
+  height: 60%;
+  width: 85%;
+  margin: 0;
+  border-radius: 25px;
+  padding-top: 20px;
+}
+#map-md {
+  height: 60%;
+  width: 85%;
+  margin: 0;
+  border-radius: 25px;
+  padding-top: 20px;
+}
+#map-me {
+  height: 60%;
+  width: 85%;
+  margin: 0;
+  border-radius: 25px;
+  padding-top: 20px;
+}
+#map-nh {
+  height: 60%;
+  width: 85%;
+  margin: 0;
+  border-radius: 25px;
+  padding-top: 20px;
+}
+#map-nj {
+  height: 60%;
+  width: 85%;
+  margin: 0;
+  border-radius: 25px;
+  padding-top: 20px;
+}
+#map-ny {
+  height: 60%;
+  width: 85%;
+  margin: 0;
+  border-radius: 25px;
+  padding-top: 20px;
+}
+#map-pa {
+  height: 60%;
+  width: 85%;
+  margin: 0;
+  border-radius: 25px;
+  padding-top: 20px;
+}
+#map-ri {
+  height: 60%;
+  width: 85%;
+  margin: 0;
+  border-radius: 25px;
+  padding-top: 20px;
+}
+#map-vt {
+  height: 60%;
+  width: 85%;
+  margin: 0;
+  border-radius: 25px;
+  padding-top: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.not-hidden {
+  display: block;
+  position: absolute;
+}
+
+.legend_vt {
+ background: rgba(232, 236, 241, .5);
+ border: darkgrey;
+ border-style: solid;
+ border-width: 1px;
+ width: 30%;
+}
+
+.legend_vt p{
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+.legend_ri {
+background: rgba(232, 236, 241, .5);
+border: darkgrey;
+border-style: solid;
+border-width: 1px;
+width: 30%;
+}
+
+.legend_ri p{
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+.legend_pa {
+  background: rgba(232, 236, 241, .5);
+  border: darkgrey;
+  border-style: solid;
+  border-width: 1px;
+  width: 30%;
+  }
+  
+.legend_pa p{
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+.legend_ny {
+  background: rgba(232, 236, 241, .5);
+  border: darkgrey;
+  border-style: solid;
+  border-width: 1px;
+  width: 30%;
+  }
+  
+.legend_ny p{
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+.legend_nj {
+  background: rgba(232, 236, 241, .5);
+  border: darkgrey;
+  border-style: solid;
+  border-width: 1px;
+  width: 30%;
+  }
+  
+.legend_nj p{
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+button {
+  margin-bottom: 20px;
+}
+
+h1 {
+  text-align: left;
+  width: 95%;
+}
+

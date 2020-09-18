@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fire Maps</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+  integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+  crossorigin=""/>
+  <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="css/leaflet.extra-markers.min.css">
+
+
+</head>
+<body>
+    <h1>We all know Ryan started the fire in Scranton, but who started the fire in your favorite northeast region state?</h1>
+    <div class="buttons-list">
+      <button class="CT">CT</button>
+      <button class="DE">DE</button>
+      <button class="MA">MA</button>
+      <button class="MD">MD</button>
+      <button class="ME">ME</button>
+      <button class="NH">NH</button>
+      <button class="NJ">NJ</button>
+      <button class="NY">NY</button>
+      <button class="PA">PA</button>
+      <button class="RI">RI</button>
+      <button class="VT">VT</button>
+    </div>
+    <div id="map-ct" class="not-hidden"></div>
+    <div id="map-de" class="not-hidden"></div>
+    <div id="map-ma" class="not-hidden"></div>
+    <div id="map-md" class="not-hidden"></div>
+    <div id="map-me" class="not-hidden"></div>
+    <div id="map-nh" class="not-hidden"></div>
+    <div id="map-nj" class="not-hidden"></div>
+    <div id="map-ny" class="not-hidden"></div>
+    <div id="map-pa" class="not-hidden"></div>
+    <div id="map-ri" class="not-hidden"></div>
+    <div id="map-vt" class="not-hidden"></div>
+
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+
+    <script src="js/leaflet.extra-markers.min.js"></script>
+    
+    <script type="text/javascript" src="js/apikey.js"></script>
+    <script type="text/javascript" src="js/map_vt.js"></script>
+    <script type="text/javascript" src="js/map_ct.js"></script>
+    <script type="text/javascript" src="js/map_de.js"></script>
+    <script type="text/javascript" src="js/map_ma.js"></script>
+    <script type="text/javascript" src="js/map_md.js"></script>
+    <script type="text/javascript" src="js/map_me.js"></script>
+    <script type="text/javascript" src="js/map_nh.js"></script>
+    <script type="text/javascript" src="js/map_nj.js"></script>
+    <script type="text/javascript" src="js/map_ny.js"></script>
+    <script type="text/javascript" src="js/map_pa.js"></script>
+    <script type="text/javascript" src="js/map_ri.js"></script>
+    <script type="text/javascript" src="js/buttons.js"></script>
+</body>
+</html>
