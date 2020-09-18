@@ -14,7 +14,7 @@ collection = db.fire_table
 print("Data Pull Starting...Please Wait...")
 
 # import csv file and turn it into dictionary
-csv_file = '../data/FireTable.csv'
+csv_file = 'C:/Users/powde/Desktop/Smokey-Bear-Fodder/backend/data/FireTable.csv'
 fire_data = pd.read_csv(csv_file, encoding= 'unicode_escape')
 print("Data Pull Complete")
 print("Building Data Table...Please Wait...")
