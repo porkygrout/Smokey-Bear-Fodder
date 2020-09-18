@@ -1,8 +1,28 @@
 html,
-body,
-#map-id {
+body {
   height: 100%;
-  width: 25%;
+  padding: 0;
+  margin: 0;
+}
+
+/* #map-id {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#map-ny {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+} */
+
+.hidden {
+  display: none;
+}
+
+.not_hidden {
+  height: 100%;
   padding: 0;
   margin: 0;
 }

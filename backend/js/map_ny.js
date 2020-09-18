@@ -1,64 +1,64 @@
+// Create the tile layer that will be the background of our map
+var lightmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+    attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+    maxZoom: 18,
+    id: "light-v10",
+    accessToken: API_KEY
+});
 // Initialize all of the LayerGroups we'll be using
-var layers = {
-  Arson: new L.LayerGroup(),
-  Campfire: new L.LayerGroup(),
-  Children: new L.LayerGroup(),
-  Debris_Burning: new L.LayerGroup(),
-  Equipment_Use: new L.LayerGroup(),
-  Lightning: new L.LayerGroup(),
-  Miscellaneous: new L.LayerGroup(),
-  Smoking: new L.LayerGroup(),
-  Other: new L.LayerGroup()
-};
-
+var layers_ny = {
+    Arson: new L.LayerGroup(),
+    Campfire: new L.LayerGroup(),
+    Children: new L.LayerGroup(),
+    Debris_Burning: new L.LayerGroup(),
+    Equipment_Use: new L.LayerGroup(),
+    Lightning: new L.LayerGroup(),
+    Miscellaneous: new L.LayerGroup(),
+    Smoking: new L.LayerGroup(),
+    Other: new L.LayerGroup()
+  };
 // Create the map with our layers
-var map = L.map("map-id", {
-  center: [40.73, -74.0059],
-  zoom: 12,
+var map_ny = L.map("map-ny", {
+  center: [43, -76.0059],
+  zoom: 7,
   layers: [
-    layers.Arson,
-    layers.Campfire,
-    layers.Debris_Burning,
-    layers.Equipment_Use,
-    layers.Lightning,
-    layers.Miscellaneous,
-    layers.Smoking,
-    layers.Other
+    layers_ny.Arson,
+    layers_ny.Campfire,
+    layers_ny.Debris_Burning,
+    layers_ny.Equipment_Use,
+    layers_ny.Lightning,
+    layers_ny.Miscellaneous,
+    layers_ny.Smoking,
+    layers_ny.Other
   ]
 });
-
 // Add our 'lightmap' tile layer to the map
-lightmap.addTo(map);
-
+lightmap.addTo(map_ny);
 // Create an overlays object to add to the layer control
-var overlays = {
-  "Arson": layers.Arson,
-  "Campfire": layers.Campfire,
-  "Children": layers.Children,
-  "Debris Burning": layers.Debris_Burning,
-  "Equipment Use": layers.Equipment_Use,
-  "Lightning": layers.Lightning,
-  "Miscellaneous": layers.Miscellaneous,
-  "Smoking": layers.Smoking,
-  "Other": layers.Other
+var overlays_ny = {
+  "Arson": layers_ny.Arson,
+  "Campfire": layers_ny.Campfire,
+  "Children": layers_ny.Children,
+  "Debris Burning": layers_ny.Debris_Burning,
+  "Equipment Use": layers_ny.Equipment_Use,
+  "Lightning": layers_ny.Lightning,
+  "Miscellaneous": layers_ny.Miscellaneous,
+  "Smoking": layers_ny.Smoking,
+  "Other": layers_ny.Other
 };
-
 // Create a control for our layers, add our overlay layers to it
-L.control.layers(null, overlays).addTo(map);
-
+L.control.layers(null, overlays_ny).addTo(map_ny);
 // Create a legend to display information about our map
 var info = L.control({
   position: "bottomright"
 });
-
 // When the layer control is added, insert a div with the class of "legend"
 info.onAdd = function() {
-  var div = L.DomUtil.create("div", "legend");
+  var div = L.DomUtil.create("div", "legend_ny");
   return div;
 };
 // Add the info legend to the map
-info.addTo(map);
-
+info.addTo(map_ny);
 // Initialize an object containing icons for each layer group
 var icons = {
   Arson: L.ExtraMarkers.icon({
@@ -116,12 +116,10 @@ var icons = {
     shape: "circle"
   }),
 };
-
 // Perform an API call to the Citi Bike Station Information endpoint
-d3.json("https://gbfs.citibikenyc.com/gbfs/en/station_information.json", function(fireLog) {
-
+d3.json("http://127.0.0.1:5000/api/fire_log_ny", function(fireLog) {
     // Create an object to keep of the number of markers in each layer
-    var fireCount = {
+    var fireCount_ny = {
       Arson: 0,
       Campfire: 0,
       Children: 0,
@@ -132,76 +130,68 @@ d3.json("https://gbfs.citibikenyc.com/gbfs/en/station_information.json", functio
       Smoking: 0,
       Other: 0
     };
-
     // Initialize a stationStatusCode, which will be used as a key to access the appropriate layers, icons, and station count for layer group
     var firetypeCode;
-
     // Loop through the stations (they're the same size and have partially matching data)
     for (var i = 0; i < fireLog.length; i++) {
-
+      var fire = fireLog[i]
       // If a station is listed but not installed, it's coming soon
-      if (fireLog.stat_cause_desc = "Arson") {
+      if (fire.stat_cause_descr == "Arson") {
         firetypeCode = "Arson";
       }
       // If a station has no bikes available, it's empty
-      else if (fireLog.stat_cause_desc = "Campfire") {
+      else if (fire.stat_cause_descr == "Campfire") {
         firetypeCode = "Campfire";
       }
       // If a station is installed but isn't renting, it's out of order
-      else if (fireLog.stat_cause_desc = "Children") {
+      else if (fire.stat_cause_descr == "Children") {
         firetypeCode = "Children";
       }
       // If a station has less than 5 bikes, it's status is low
-      else if (fireLog.stat_cause_desc = "Debris Burning") {
+      else if (fire.stat_cause_descr == "Debris Burning") {
         firetypeCode = "Debris_Burning";
       }
       // Otherwise the station is normal
-      else if (fireLog.stat_cause_desc = "Equipment Use") {
+      else if (fire.stat_cause_descr == "Equipment Use") {
         firetypeCode = "Equipment_Use";
       }
-      else if (fireLog.stat_cause_desc = "Lightning") {
+      else if (fire.stat_cause_descr == "Lightning") {
         firetypeCode = "Lightning";
       }
-      else if (fireLog.stat_cause_desc = "Miscellaneous") {
+      else if (fire.stat_cause_descr == "Miscellaneous") {
         firetypeCode = "Miscellaneous";
       }
-      else if (fireLog.stat_cause_desc = "Smoking") {
+      else if (fire.stat_cause_descr == "Smoking") {
         firetypeCode = "Smoking";
       }
       else {
         firetypeCode = "Other"
       }
-
       // Update the station count
-      fireCount[firetypeCode]++;
+      fireCount_ny[firetypeCode]++;
       // Create a new marker with the appropriate icon and coordinates
-      var newMarker = L.marker([fireLog.latitude, fireLog.longitude], {
+      var newMarker = L.marker([fire.latitude, fire.longitude], {
         icon: icons[firetypeCode]
       });
-
       // Add the new marker to the appropriate layer
-      newMarker.addTo(layers[firetypeCode]);
-
+      newMarker.addTo(layers_ny[firetypeCode]);
       // Bind a popup to the marker that will  display on click. This will be rendered as HTML
-      newMarker.bindPopup("Fire Name " + fireLog.FIRE_NAME + "<br> Type: " + fireLog.stat_cause_desc + "<br> Reporting Agency: " + fireLog.NWCG_REPORTING_UNIT_NAME);
+      newMarker.bindPopup("Fire Name " + fire.fire_name + "<br> Type: " + fire.stat_cause_descr + "<br> Reporting Agency: " + fire.nwcg_reporting_unit_name);
     }
-
     // Call the updateLegend function, which will... update the legend!
-    updateLegend(fireCount);
+    updateLegend(fireCount_ny);
   });
-});
-
 // Update the legend's innerHTML with the last updated time and station count
-function updateLegend(fireCount) {
-  document.querySelector(".legend").innerHTML = [
-    "<p class='Arson'>Arson: " + fireCount.Arson + "</p>",
-    "<p class='Campfire'>Campfire: " + fireCount.Campfire + "</p>",
-    "<p class='Children'>Children: " + fireCount.Children + "</p>",
-    "<p class='Debris_Burning'>Debris Burning: " + fireCount.Debris_Burning + "</p>",
-    "<p class='Equipment_Use'>Equipment Use: " + fireCount.Equipment_Use + "</p>",
-    "<p class='Lightning'>Lightning: " + fireCount.Lightning + "</p>",
-    "<p class='Miscellaneous'>Miscellaneous" + fireCount.Miscellaneous + "</p>",
-    "<p class='Smoking'>Smoking" + fireCount.Smoking + "</p>",
-    "<p class='Other'>Other" + fireCount.Other + "</p>"
+function updateLegend(fireCount_ny) {
+  document.querySelector(".legend_ny").innerHTML = [
+    "<p class='Arson'>Arson: " + fireCount_ny.Arson + "</p>",
+    "<p class='Campfire'>Campfire: " + fireCount_ny.Campfire + "</p>",
+    "<p class='Children'>Children: " + fireCount_ny.Children + "</p>",
+    "<p class='Debris_Burning'>Debris Burning: " + fireCount_ny.Debris_Burning + "</p>",
+    "<p class='Equipment_Use'>Equipment Use: " + fireCount_ny.Equipment_Use + "</p>",
+    "<p class='Lightning'>Lightning: " + fireCount_ny.Lightning + "</p>",
+    "<p class='Miscellaneous'>Miscellaneous" + fireCount_ny.Miscellaneous + "</p>",
+    "<p class='Smoking'>Smoking" + fireCount_ny.Smoking + "</p>",
+    "<p class='Other'>Other" + fireCount_ny.Other + "</p>"
   ].join("");
 }
