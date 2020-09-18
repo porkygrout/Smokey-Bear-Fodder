@@ -2,7 +2,7 @@
 var lightmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
     maxZoom: 18,
-    minZoom: 7,
+    minZoom: 8,
     id: "light-v10",
     accessToken: API_KEY
 });
@@ -29,7 +29,7 @@ var layers_nj = {
   // Create the map with our layers_nj
   var map_nj = L.map("map-nj", {
     center: [40.0583, -74.4059],
-    zoom: 7,
+    zoom: 8,
     layers: [
       layers_nj.Arson,
       layers_nj.Campfire,
@@ -86,6 +86,93 @@ var layers_nj = {
   // Add the info legend to the map
   info.addTo(map_nj);
  
+
+  var icons = {
+    Arson: L.icon({
+      iconUrl: "../img/redfireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
+    }),
+    Campfire: L.icon({
+      iconUrl: "../img/bluefireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
+    }),
+    Children: L.icon({
+      iconUrl: "../img/blackfireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
+    }),
+    Debris_Burning: L.icon({
+      iconUrl: "../img/brownfireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
+    }),
+    Equipment_Use: L.icon({
+      iconUrl: "../img/greenfireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
+    }),
+    Fireworks: L.icon({
+      iconUrl: "../img/yellowfireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
+    }),
+    Lightning: L.icon({
+      iconUrl: "../img/purplefireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
+    }),
+    Miscellaneous: L.icon({
+      iconUrl: "../img/orangefireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
+    }),
+    Missing_Undefined: L.icon({
+      iconUrl: "../img/greyfireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
+    }),
+    Powerline: L.icon({
+      iconUrl: "../img/pinkfireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
+    }),
+    Railroad: L.icon({
+      iconUrl: "../img/lightblueicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
+    }),
+    Smoking: L.icon({
+      iconUrl: "../img/limefireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
+    }),
+    Structure: L.icon({
+      iconUrl: "../img/lightgreyicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
+    }),
+    Other: L.icon({
+      iconUrl: "../img/maroonfireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
+    }),
+  };
   // Perform an API call to the Citi Bike Station Information endpoint
   d3.json("http://127.0.0.1:5000/api/fire_log_nj", function(fireLog) {
   

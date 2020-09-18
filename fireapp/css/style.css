@@ -168,6 +168,96 @@ width: 30%;
   margin-top: 1px;
 }
 
+.legend_nh {
+  background: rgba(232, 236, 241, .5);
+  border: darkgrey;
+  border-style: solid;
+  border-width: 1px;
+  width: 30%;
+  }
+  
+.legend_nh p{
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+.legend_me {
+  background: rgba(232, 236, 241, .5);
+  border: darkgrey;
+  border-style: solid;
+  border-width: 1px;
+  width: 30%;
+  }
+  
+.legend_me p{
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+.legend_md {
+  background: rgba(232, 236, 241, .5);
+  border: darkgrey;
+  border-style: solid;
+  border-width: 1px;
+  width: 30%;
+  }
+  
+.legend_md p{
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+.legend_ma {
+  background: rgba(232, 236, 241, .5);
+  border: darkgrey;
+  border-style: solid;
+  border-width: 1px;
+  width: 30%;
+  }
+  
+.legend_ma p{
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+.legend_de {
+  background: rgba(232, 236, 241, .5);
+  border: darkgrey;
+  border-style: solid;
+  border-width: 1px;
+  width: 30%;
+  }
+  
+.legend_de p{
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+.legend_ct {
+  background: rgba(232, 236, 241, .5);
+  border: darkgrey;
+  border-style: solid;
+  border-width: 1px;
+  width: 30%;
+  }
+  
+.legend_ct p{
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
 button {
   margin-bottom: 20px;
 }

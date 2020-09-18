@@ -2,6 +2,7 @@
 var lightmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
     maxZoom: 18,
+    minZoom: 8,
     id: "light-v10",
     accessToken: API_KEY
 });
@@ -27,8 +28,8 @@ var layers_nh = {
   
   // Create the map with our layers_nh
   var map_nh = L.map("map-nh", {
-    center: [43, -76.0059],
-    zoom: 7,
+    center: [44, -71.5],
+    zoom: 8,
     layers: [
       layers_nh.Arson,
       layers_nh.Campfire,
@@ -81,97 +82,97 @@ var layers_nh = {
     var div = L.DomUtil.create("div", "legend_nh");
     return div;
   };
+
   // Add the info legend to the map
   info.addTo(map_nh);
   
-  // Initialize an object containing icons for each layer group
+
   var icons = {
-    Arson: L.ExtraMarkers.icon({
-      icon: "ion-settings",
-      iconColor: "white",
-      markerColor: "yellow",
-      shape: "star"
+    Arson: L.icon({
+      iconUrl: "../img/redfireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
     }),
-    Campfire: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "red",
-      shape: "circle"
+    Campfire: L.icon({
+      iconUrl: "../img/bluefireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
     }),
-    Children: L.ExtraMarkers.icon({
-      icon: "ion-minus-circled",
-      iconColor: "white",
-      markerColor: "blue-dark",
-      shape: "penta"
+    Children: L.icon({
+      iconUrl: "../img/blackfireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
     }),
-    Debris_Burning: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "orange",
-      shape: "circle"
+    Debris_Burning: L.icon({
+      iconUrl: "../img/brownfireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
     }),
-    Equipment_Use: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "green",
-      shape: "circle"
+    Equipment_Use: L.icon({
+      iconUrl: "../img/greenfireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
     }),
-    Fireworks: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "green",
-      shape: "circle"
+    Fireworks: L.icon({
+      iconUrl: "../img/yellowfireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
     }),
-    Lightning: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "cyan",
-      shape: "circle"
+    Lightning: L.icon({
+      iconUrl: "../img/purplefireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
     }),
-    Miscellaneous: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "pink",
-      shape: "circle"
+    Miscellaneous: L.icon({
+      iconUrl: "../img/orangefireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
     }),
-    Missing_Undefined: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "green",
-      shape: "circle"
+    Missing_Undefined: L.icon({
+      iconUrl: "../img/greyfireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
     }),
-    Powerline: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "green",
-      shape: "circle"
+    Powerline: L.icon({
+      iconUrl: "../img/pinkfireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
     }),
-    Railroad: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "green",
-      shape: "circle"
+    Railroad: L.icon({
+      iconUrl: "../img/lightblueicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
     }),
-    Smoking: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "violet",
-      shape: "circle"
+    Smoking: L.icon({
+      iconUrl: "../img/limefireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
     }),
-    Structure: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "green",
-      shape: "circle"
+    Structure: L.icon({
+      iconUrl: "../img/lightgreyicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
     }),
-    Other: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "yellow",
-      shape: "circle"
+    Other: L.icon({
+      iconUrl: "../img/maroonfireicon.png",
+      iconSize: [30,30],
+      iconAnchor: [15,30],
+      popupAnchor: [0,-30]
     }),
   };
-  
   // Perform an API call to the Citi Bike Station Information endpoint
   d3.json("http://127.0.0.1:5000/api/fire_log_nh", function(fireLog) {
   
@@ -260,16 +261,16 @@ var layers_nh = {
         newMarker.addTo(layers_nh[firetypeCode]);
   
         // Bind a popup to the marker that will  display on click. This will be rendered as HTML
-        newMarker.bindPopup("Fire Name " + fire.fire_name + "<br> Type: " + fire.stat_cause_descr + "<br> Reporting Agency: " + fire.nwcg_reporting_unit_name);
+        newMarker.bindPopup("Fire Name: " + fire.fire_name + "<br> Type: " + fire.stat_cause_descr + "<br> Reporting Agency: " + fire.nwcg_reporting_unit_name);
       }
   
       // Call the updateLegend function, which will... update the legend!
-      updateLegend(fireCount);
+      updateLegend_nh(fireCount);
     });
 
   
   // Update the legend's innerHTML with the last updated time and station count
-  function updateLegend(fireCount) {
+  function updateLegend_nh(fireCount) {
     document.querySelector(".legend_nh").innerHTML = [
       "<p class='Arson'>Arson: " + fireCount.Arson + "</p>",
       "<p class='Campfire'>Campfire: " + fireCount.Campfire + "</p>",
@@ -279,7 +280,7 @@ var layers_nh = {
       "<p class='Fireworks'>Fireworks: " + fireCount.Fireworks + "</p>",
       "<p class='Lightning'>Lightning: " + fireCount.Lightning + "</p>",
       "<p class='Miscellaneous'>Miscellaneous: " + fireCount.Miscellaneous + "</p>",
-      "<p class='Missing_Undefined'>Missing/Undefined: " + fireCount.Missing_Undefined + "</p>",
+      "<p class='Missing_Undefined'>Missing: " + fireCount.Missing_Undefined + "</p>",
       "<p class='Powerline'>Powerline: " + fireCount.Powerline + "</p>",
       "<p class='Railroad'>Railroad: " + fireCount.Railroad + "</p>",
       "<p class='Smoking'>Smoking: " + fireCount.Smoking + "</p>",
