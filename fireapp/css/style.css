@@ -1,9 +1,19 @@
-html,
+html {
+  height: 100%;
+  width: 100%;
+}
+
 body {
   height: 100%;
   padding-left: 5%;
   margin: 0;
   
+}
+
+
+.not-hidden2 {
+  display: block;
+  position: absolute;
 }
 
 #map-ct {
@@ -13,6 +23,7 @@ body {
   border-radius: 25px;
   padding-top: 20px;
 }
+
 #map-de {
   height: 60%;
   width: 85%;
@@ -88,9 +99,10 @@ body {
   display: none;
 }
 
+
 .not-hidden {
   display: block;
-  position: absolute;
+  position: relative;
 }
 
 .legend_vt {
@@ -267,3 +279,10 @@ h1 {
   width: 95%;
 }
 
+.hidden-text {
+  display: none;
+}
+
+.not-hidden-text {
+  display: block;
+}
